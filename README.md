@@ -1,3 +1,6 @@
+User Site - https://property-list-client-internship.vercel.app
+Admin Site - https://property-list-client-internship.vercel.app/admin
+
 # PropertyList Project
 
 This repository contains the full-stack application for the Property Listing project, developed as part of an internship. The project consists of a backend server and a frontend client application.
