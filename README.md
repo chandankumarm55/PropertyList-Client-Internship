@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# PropertyList Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains the full-stack application for the Property Listing project, developed as part of an internship. The project consists of a backend server and a frontend client application.
 
-## Available Scripts
+## Backend Server
 
-In the project directory, you can run:
+### Prerequisites
+- Node.js (v14 or later)
+- npm (Node Package Manager)
+- MongoDB Atlas account
 
-### `npm start`
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/chandankumarm55/PropertyList-Server-Internship.git
+   ```
+2. Navigate to the server directory:
+   ```bash
+   cd PropertyList-Server-Internship
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Environment Variables
+Create a `.env` file in the root directory of the server and add the following environment variables:
+```
+MONGO_URI=mongodb+srv://chandan:chandan228@cluster0.spp3a.mongodb.net/
+PORT=5000
+FRONTEND_URL=https://property-list-client-internship.vercel.app
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Running the Server
+To start the server, use the following command:
+```bash
+npm start
+```
+The server will run on the specified PORT (default is 5000).
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### API Endpoints
+- GET `/api/properties` - Retrieve all properties
+- GET `/api/properties/:id` - Retrieve a property by ID
+- POST `/api/properties` - Create a new property
+- PUT `/api/properties/:id` - Update an existing property
+- DELETE `/api/properties/:id` - Delete a property
+- GET `/api/contacts` - Retrieve all interested users
+- POST `/api/contacts` - Submit user interest
 
 ### Deployment
+The backend is hosted on Render.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Frontend Client
 
-### `npm run build` fails to minify
+### Prerequisites
+- Node.js (v14 or later)
+- npm (Node Package Manager)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/chandankumarm55/PropertyList-Client-Internship.git
+   ```
+2. Navigate to the client directory:
+   ```bash
+   cd PropertyList-Client-Internship
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Client
+To start the client application in development mode, use:
+```bash
+npm run dev
+```
+
+### Building for Production
+To create a production build, use:
+```bash
+npm run build
+```
+
+### Technologies Used
+- React
+- Redux for state management
+- Tailwind CSS for styling
+- Framer Motion for animations
+
+### Deployment
+The client-side application is deployed on Vercel.
+
+## Accessing the Application
+
+### User Interface
+The main user interface can be accessed at:
+[https://property-list-client-internship.vercel.app/](https://property-list-client-internship.vercel.app/)
+
+### Admin Panel
+The admin panel can be accessed at:
+[https://property-list-client-internship.vercel.app/admin](https://property-list-client-internship.vercel.app/admin)
+
+## Contributing
+Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
