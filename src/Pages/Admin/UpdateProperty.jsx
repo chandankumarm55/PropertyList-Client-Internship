@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPropertyById, modifyProperty } from '../../store/propertySlice';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import AdminNavbar from './AdminNavbar';
+import toast from 'react-hot-toast';
 
 const UpdateProperty = () => {
     const { id } = useParams();
     const dispatch = useDispatch();
     const { currentProperty } = useSelector(state => state.properties);
+    const navigate = useNavigate(); // No default argument here, use 'navigate' directly
 
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
@@ -17,7 +19,6 @@ const UpdateProperty = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-
 
     useEffect(() => {
         dispatch(getPropertyById(id));
@@ -31,15 +32,16 @@ const UpdateProperty = () => {
         }
     }, [currentProperty]);
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const formData = new FormData();
         formData.append('title', title);
         formData.append('description', description);
         formData.append('price', price);
         if (image) formData.append('image', image);
-
         dispatch(modifyProperty({ id, formData }));
+        toast.success("Updated Successfully")
+        navigate('/admin');
     };
 
     return (

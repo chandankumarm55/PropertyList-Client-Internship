@@ -4,6 +4,7 @@ import { addProperty } from '../../store/propertySlice';
 import toast from 'react-hot-toast';
 import AdminNavbar from './AdminNavbar';
 import Footer from '../user/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const ListProperty = () => {
     const [title, setTitle] = useState('');
@@ -11,6 +12,7 @@ const ListProperty = () => {
     const [price, setPrice] = useState('');
     const [image, setImage] = useState(null);
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -19,8 +21,6 @@ const ListProperty = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-
         if (!title || !description || !price || !image) {
             toast.error("All fields are required!");
             return;
@@ -33,12 +33,12 @@ const ListProperty = () => {
         formData.append('image', image);
 
         dispatch(addProperty(formData)).then(() => {
-
             setTitle('');
             setDescription('');
             setPrice('');
             setImage(null);
             toast.success("Property listed successfully!");
+            navigate('/admin')
         });
     };
 
